@@ -24,3 +24,18 @@ FROM sys.tables t
 WHERE t.NAME NOT LIKE 'dt%' AND i.OBJECT_ID > 255 AND i.index_id <= 1
 GROUP BY t.NAME, i.object_id, i.index_id, i.name
 ORDER BY SUM(p.rows) desc
+
+
+-- year to year increase of rows 
+USE [AdventureWorks2014]; -- Replace with your actual database name
+GO
+ 
+SELECT
+    YEAR(ModifiedDate) AS Year, ---Replace by YourDateColumn
+    COUNT(*) AS 'RowCount'
+FROM
+    [Person].[Person] -- Replace with your actual table name
+GROUP BY
+    YEAR(ModifiedDate) ---Replace by YourDateColumn
+ORDER BY
+    Year;
