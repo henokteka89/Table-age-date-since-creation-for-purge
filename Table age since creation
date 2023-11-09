@@ -1,4 +1,4 @@
----Get tables' age
+---GET TABLES' AGE
 
 USE YourDatabaseName; -- Replace with your actual database name
 
@@ -14,7 +14,7 @@ JOIN
 ORDER BY
     YearsSinceCreation DESC;
 
--- Tables with a Large number of rows (top 10)
+-- TABLES WITH A LARGE NUMBER OF ROWS (TOP 10)
 
  USE DATABASENAME
 SELECT TOP 10 t.NAME AS TableName, SUM(p.rows) AS RowCounts
@@ -26,7 +26,8 @@ GROUP BY t.NAME, i.object_id, i.index_id, i.name
 ORDER BY SUM(p.rows) desc
 
 
--- year to year increase of rows 
+-- YEAR TO YEAR INCREASE OF ROWS
+
 USE [AdventureWorks2014]; -- Replace with your actual database name
 GO
  
