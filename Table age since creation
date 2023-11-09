@@ -1,0 +1,13 @@
+USE YourDatabaseName; -- Replace with your actual database name
+
+SELECT
+    t.name AS TableName,
+    s.name AS SchemaName,
+    t.create_date AS TableCreationDate,
+    DATEDIFF(YEAR, t.create_date, GETDATE()) AS YearsSinceCreation
+FROM
+    sys.tables t
+JOIN
+    sys.schemas s ON t.schema_id = s.schema_id
+ORDER BY
+    YearsSinceCreation DESC;
